@@ -96,8 +96,14 @@ img {
   margin-right: 50px;
 }
 
+.nav-link {
+  display: block;
+  position: relative;
+}
+
 .nav-link-item {
   display: block;
+  position: relative;
   padding-top: 32px;
   padding-bottom: 32px;
 
@@ -117,26 +123,28 @@ img {
   color: var(--blue);
 }
 
-.nav-link-item::before {
+.nav-link-item:hover::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: 0;
   display: block;
   width: 100%;
   height: 4px;
+  bottom: 0;
+  left: 0;
   border-radius: 2px;
-  background-color: var(--blue);
-
-  opacity: 0;
-  transform: scaleX(0);
-
-  transition: transform var(--transition-duration) var(--transition-function),
-    opacity var(--transition-duration) var(--transition-function);
+  background: var(--blue);
 }
 
-.active-link {
-  color: var(--blue);
+.current-page::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  border-radius: 2px;
+  background: var(--blue);
 }
 
 .contact-list {
@@ -400,6 +408,7 @@ img {
 }
 
 .examples-item-overlay {
+  position: absolute;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -441,6 +450,8 @@ img {
 }
 
 .team-item {
+  width: 270px;
+  height: 428px;
   flex-basis: calc((100% - 120px) / 4);
   margin-top: 30px;
   margin-left: 30px;
@@ -773,7 +784,6 @@ img {
   flex-basis: calc((100% - 90px) / 3);
   margin-left: 30px;
   margin-top: 30px;
-
   transition: box-shadow var(--transition-duration) var(--transition-function);
 }
 
@@ -807,8 +817,8 @@ img {
   color: var(--gray);
 }
 
-.portfolio-box:hover,
-.portfolio-box:focus {
+.portfolio-list-items:hover,
+.portfolio-list-items:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
@@ -820,6 +830,7 @@ img {
 }
 
 .overlay-text {
+  position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
@@ -838,10 +849,13 @@ img {
     transform var(--transition-duration) var(--transition-function);
 }
 
-.portfolio-list:hover .overlay-text,
-.portfolio-list:focus .overlay-text {
+.portfolio-list-items:hover .overlay-text,
+.portfolio-list-items:focus .overlay-text {
   transform: translateY(-100%);
   opacity: 1;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
 }
 
 .footer-portfolio {
@@ -911,13 +925,6 @@ li {
   list-style-type: none;
 }
 
-.current-page::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 4px;
-  bottom: 0;
-  left: 0;
-  border-radius: 2px;
-  background: var(--blue);
+.current-page {
+  color: var(--blue);
 }
