@@ -123,7 +123,8 @@ img {
   color: var(--blue);
 }
 
-.nav-link-item:hover::after {
+.nav-link-item:hover::after,
+.nav-link-item:focus::after {
   content: "";
   position: absolute;
   display: block;
